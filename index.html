@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
 
   <title>Frontend Mentor | Clipboard landing page</title>
 
@@ -13,14 +19,82 @@
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
-
+/* init css */
     :root{
       --primaryCyan: hsl(171, 66%, 44%);
+      --activeCyan: hsl(171, 79%, 64%);
+      --borderCyan: hsl(171, 72%, 37%);
+      --displayCyan: hsl(171, 73%, 13%);
+      --displayBorderCyan: hsl(170, 58%, 8%);
+
+
       --primaryBlue: hsl(233, 100%, 69%);
+      --primaryBorderBlue: hsl(233, 53%, 44%);
+
       --DarkBlue: hsl(210, 10%, 33%);
       --liteDarkBlue: hsl(201, 11%, 66%);
     }
 
+    body{
+      font-family: "Bai Jamjuree", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+/* btn border bottom */
+
+    /* btn primary color*/
+    .btnCyenColor{
+      background-color: var(--primaryCyan);
+      border: 2px solid var(--borderCyan);
+      color: #fff;
+      border-bottom: 5px solid var(--borderCyan);
+      box-shadow: 0px 2px 8px #26baa482;
+
+      padding: 12px 45px;
+      font-weight: bold;
+      margin: 0 10px
+
+    }
+    .btnCyenColor:hover{
+      background-color: var(--borderCyan);
+      color: #eee;
+    }
+
+    .btnBlueColor{
+      background-color: var(--primaryBlue);
+      border: 2px solid var(--primaryBorderBlue);
+      color: #fff;
+      border-bottom: 5px solid var(--primaryBorderBlue);
+      box-shadow: 0px 2px 8px #6173ff85;
+
+      padding: 12px 45px;
+      font-weight: bold;
+      margin: 0 10px
+      
+    }
+
+    .btnBlueColor:hover{
+      background-color: var(--primaryBorderBlue);
+      color: #eee;
+    }
+
+    /* btb primary colors cyan for bootstrap */
+    .brnCorCyan{
+      --bs-btn-color: #fff;
+      --bs-btn-bg: var(--primaryCyan);
+      --bs-btn-border-color: var(--borderCyan);
+      --bs-btn-hover-color: #fff;
+      --bs-btn-hover-bg: var(--borderCyan);
+      --bs-btn-hover-border-color: var(--primaryCyan);
+      --bs-btn-focus-shadow-rgb: 49, 132, 253;
+      --bs-btn-active-color: #fff;
+      --bs-btn-active-bg: var(--activeCyan);
+      --bs-btn-active-border-color: var(--primaryCyan);
+      --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      --bs-btn-disabled-color: #fff;
+      --bs-btn-disabled-bg: var(--displayCyan);
+      --bs-btn-disabled-border-color: var(--displayBorderCyan);
+    }
     /* primary color */
     .primaryColorCyan{
       color: var(--primaryCyan);
@@ -35,6 +109,9 @@
       color: var(--liteDarkBlue);
     }
 
+
+
+    /* header */
     header{
       padding: 200px 0;
       background-image: url(/images/bg-header-desktop.png);
@@ -42,6 +119,11 @@
       background-size: 100% auto;
       object-fit: cover;
     }
+    .infoHeader,.titleSectionHolder{
+      width: 869px;
+    }
+
+ 
 
 
   </style>
@@ -52,7 +134,7 @@
     <!-- container -->
      <div class="container ">
       <div class="row justify-content-center row-cols-1">
-        <div class="col-8">
+        <div class="col-12">
           <!-- start logo -->
            <div class="logo text-center">
             <a href="#">
@@ -62,15 +144,15 @@
            <!-- end logo -->
 
            <!-- start info  -->
-            <div class="infoHeader text-center ">
-              <h2>A history of everything you copy</h2>
-              <p>
+            <div class="infoHeader text-center py-5 m-auto">
+              <h2 class="display-4 fw-bold darkBlue">A history of everything you copy</h2>
+              <p class="h4 mt-4 mb-5 liteDarkBlue lh-base">
                 Clipboard allows you to track and organize everything you 
                 copy. Instantly access your clipboard on all your devices.
               </p>
               <div class="infoHeaderDonwlodBtn">
-                <a class="btn btn-primary" href="#">Download for iOS</a>
-                <a class="btn btn-primary" href="#">Download for Mac</a>
+                <a class="btn btn-lg rounded-pill btnCyenColor" href="#">Download for iOS</a>
+                <a class="btn btnBlueColor btn-lg rounded-pill" href="#">Download for Mac</a>
               </div>
             </div>
             <!-- end info -->
@@ -78,6 +160,30 @@
       </div>
      </div>
   </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <!-- title of section -->
+        <div class="row">
+          <div class="col-12">
+            <div class="titleSectionHolder m-auto">
+              <h1 class="display-5 darkBlue text-center fw-bold my-2">Keep track of your snippets</h1>
+              <p class="h4 mt-4 mb-5 liteDarkBlue text-center lh-base">
+                Clipboard instantly stores any item you copy in the cloud, 
+                meaning you can access your snippets immediately on all your 
+                devices. Our Mac and iOS apps will help you organize everything.
+              </p>
+            </div>
+           
+          </div>
+        </div>
+
+        <!-- content of section -->
+         
+      </div>
+    </section>
+  </main>
 
   A history of everything you copy
  
